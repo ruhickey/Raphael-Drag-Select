@@ -14,9 +14,14 @@
             set = paper.set();
         
         while(bot) {
-            var x = bot.node.x.baseVal.value,
-                y = bot.node.y.baseVal.value;
-            
+            var x = bot.attr("x") + bot.attr("width"),
+                y = bot.attr("y") + bot.attr("height");
+           
+			if (bot.matrix) {
+				x += bot.matrix.e;
+				y += bot.matrix.f;
+            }
+
             if((x >= min_x) && (x <= max_x) && (y >= min_y) && (y <= max_y)) {
                 set.push(bot);
             }
