@@ -17,9 +17,9 @@
             var x = bot.attr("x") + bot.attr("width"),
                 y = bot.attr("y") + bot.attr("height");
            
-			if (bot.matrix) {
-				x += bot.matrix.e;
-				y += bot.matrix.f;
+            if (bot.matrix) {
+                x += bot.matrix.e;
+                y += bot.matrix.f;
             }
 
             if((x >= min_x) && (x <= max_x) && (y >= min_y) && (y <= max_y)) {
