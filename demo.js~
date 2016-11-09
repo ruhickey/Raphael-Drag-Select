@@ -1,6 +1,5 @@
 window.onload = function() {
     var paper = new Raphael("canvas", "100%", "100%");
-
     var options = {
         "stroke-dasharray": "100 20 0 20",
         "stroke": "#F00"
