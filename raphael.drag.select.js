@@ -83,7 +83,7 @@
     $.fn.undragSelect = function() {
         var self = this;
         if (!this.dragCanvas) return;
-		this.dragCanvas.onmousedown = null;
+	this.dragCanvas.onmousedown = null;
         this.dragCanvas.onmouseup = null;
         this.dragCanvas = null;
     };
