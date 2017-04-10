@@ -27,7 +27,7 @@
         while(bot) {
           // (x, y) are the center of the nodes
           var x = bot.attr("x") + (bot.attr("width") / 2),
-            y = bot.attr("y") + (bot.attr("height") / 2);
+              y = bot.attr("y") + (bot.attr("height") / 2);
 
           // If the node has been transformed
           // This allows us to get the currect (x, y) positions
@@ -52,14 +52,14 @@
     // The function that sets up all the events needed
     $.fn.dragSelect = function(func, opts) {
         var self = this;
-		// Set up the options
-		opts = opts || {};
-		opts['stroke-dasharray'] = opts['stroke-dasharray'] || '.';
-		opts.stroke = opts.stroke || '#000';
+        // Set up the options
+        opts = opts || {};
+        opts['stroke-dasharray'] = opts['stroke-dasharray'] || '.';
+        opts.stroke = opts.stroke || '#000';
 
         // opts must be an object - {}
         if (typeof opts !== 'object') {
-			throw Error("dragSelect options must be in an Object");
+            throw Error("dragSelect options must be in an Object");
         }
 
         // Only attach dragSelect once
@@ -124,7 +124,7 @@
     $.fn.undragSelect = function() {
         var self = this;
         if (!this.dragCanvas) return;
-	this.dragCanvas.onmousedown = null;
+        this.dragCanvas.onmousedown = null;
         this.dragCanvas.onmouseup = null;
         this.dragCanvas = null;
     };
