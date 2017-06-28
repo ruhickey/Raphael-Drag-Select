@@ -49,13 +49,18 @@
         return set;
     }
 
+    function getDefaultOpts(opts) {
+      opts = opts || {};
+      opts['stroke-dasharray'] = opts['stroke-dasharray'] || '.';
+      opts.stroke = opts.stroke || '#000';
+      return opts;
+    }
+
     // The function that sets up all the events needed
     $.fn.dragSelect = function(func, opts) {
         var self = this;
         // Set up the options
-        opts = opts || {};
-        opts['stroke-dasharray'] = opts['stroke-dasharray'] || '.';
-        opts.stroke = opts.stroke || '#000';
+        opts = getDefaultOpts(opts);
 
         // opts must be an object - {}
         if (typeof opts !== 'object') {
@@ -63,7 +68,7 @@
         }
 
         // Only attach dragSelect once
-        if(this.dragCanvas) return;
+        if (this.dragCanvas) return;
         this.dragCanvas = this.canvas;
         this.dragCanvas.dragging = false;
         this.dragOptions = {
@@ -116,6 +121,14 @@
             this.path.remove();
             self.dragOptions.dragFinish(getSetWithinBounds(self, this.start_x, this.start_y, this.end_x, this.end_y));
         };
+
+        var setColor = function(color) {
+          opts.stroke = color;
+        };
+
+        return {
+          setColor: setColor
+        }
     };
 
     // De-Initialise the plugin

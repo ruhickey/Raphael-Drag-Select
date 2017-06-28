@@ -10,8 +10,7 @@ window.onload = function() {
     "stroke": "#F00"
   };
 
-  // Initialise the Plugin with a callback function
-  paper.dragSelect(function(set) {
+  var callback = function(set) {
     if (set.length == 0) {
       console.log("No nodes found.");
     } else {
@@ -19,7 +18,11 @@ window.onload = function() {
         console.log("set["+i+"] - " + set.items[i].type);
       }
     }
-  }, options);
+  };
+
+  // Initialise the Plugin with a callback function
+  paper.dragSelect(callback, options)
+    .setColor("#00F");
 
   // Create a node on screen
   paper.rect(10, 10, 100, 100);
